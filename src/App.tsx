@@ -1,6 +1,7 @@
 import { useView } from "@/hooks/useView";
 
 import Navbar from "@/components/Navbar/Navbar";
+import Resume from "@/components/Resume/Resume";
 
 import "./App.css";
 
@@ -22,7 +23,7 @@ export default function App() {
       </div>
 
       <div className="app__panel app__panel--resume">
-        Resume
+        <Resume />
       </div>
     </div>
   );

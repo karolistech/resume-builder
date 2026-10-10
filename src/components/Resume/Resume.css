@@ -1,0 +1,10 @@
+.resume__container {
+  overflow: hidden;
+}
+
+.resume {
+  width: 210mm;
+  height: 297mm;
+  transform-origin: top left;
+  background-color: var(--color-white);
+}
