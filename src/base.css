@@ -1,5 +1,27 @@
+@font-face {
+  font-family: NotoSans;
+  src: url("./assets/fonts/NotoSans.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: NotoSerif;
+  src: url("./assets/fonts/NotoSerif.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: NotoSansMono;
+  src: url("./assets/fonts/NotoSansMono.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: NotoSans, system-ui;
 }
