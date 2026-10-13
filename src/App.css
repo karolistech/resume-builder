@@ -1,0 +1,15 @@
+.app__panel {
+  display: none;
+}
+
+.app--editor .app__panel--editor {
+  display: block;
+}
+
+.app--design .app__panel--design {
+  display: block;
+}
+
+.app--resume .app__panel--resume {
+  display: block;
+}
