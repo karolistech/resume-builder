@@ -1,3 +1,7 @@
+.app {
+  padding: 1rem 1rem 6.5rem;
+}
+
 .app__navbar {
   position: fixed;
   z-index: 1;
@@ -24,4 +28,52 @@
 
 .app--resume .app__panel--resume {
   display: block;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding-bottom: 1rem;
+    display: grid;
+    grid-template-areas:
+      "navbar resume"
+      "main   resume";
+    grid-template-columns: 300px auto;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+  }
+
+  .app__navbar {
+    grid-area: navbar;
+    position: static;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    border-radius: var(--radius-md);
+  }
+
+  .app__panel--editor,
+  .app__panel--design {
+    grid-area: main;
+  }
+
+  .app__panel--resume {
+    grid-area: resume;
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app {
+    grid-template-areas: "navbar main resume";
+    grid-template-columns: 125px 350px auto;
+    grid-template-rows: auto;
+    align-items: start;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .app__navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }

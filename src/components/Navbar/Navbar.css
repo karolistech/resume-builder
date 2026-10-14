@@ -26,3 +26,9 @@
   font-weight: 600;
   text-transform: capitalize;
 }
+
+@media (min-width: 768px) {
+  .navbar__button--resume {
+    display: none;
+  }
+}
