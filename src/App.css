@@ -58,6 +58,7 @@
 
   .app__panel--resume {
     grid-area: resume;
+    min-width: 0;
     display: block;
   }
 }

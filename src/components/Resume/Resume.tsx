@@ -1,12 +1,45 @@
+import { useEffect, useRef } from "react";
+
 import type { Resume } from "@/types/resume";
+
+import "./Resume.css";
 
 type ResumeProps = {
   resume: Resume;
 };
 
 export default function Resume({ resume }: ResumeProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const resumeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    const resume = resumeRef.current;
+
+    if (container === null || resume === null) return;
+
+    const updateScale = () => {
+      const availableWidth = container.clientWidth;
+      const resumeWidth = resume.offsetWidth;
+      const resumeHeight = resume.offsetHeight;
+
+      const scale = availableWidth / resumeWidth;
+
+      container.style.height = `${resumeHeight * scale}px`;
+      resume.style.transform = `scale(${scale})`;
+    };
+
+    const observer = new ResizeObserver(updateScale);
+
+    observer.observe(container);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="resume">
+    <div ref={containerRef} className="resume__container">
+      <div ref={resumeRef} className="resume">
+      </div>
     </div>
   );
 }
