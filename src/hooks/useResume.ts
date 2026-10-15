@@ -1,0 +1,23 @@
+import { useState } from "react";
+
+import type { Resume } from "@/types/resume";
+
+import { emptyResume, exampleResume } from "@/data/resume";
+
+export function useResume() {
+  const [resume, setResume] = useState<Resume>(exampleResume);
+
+  function updateResume(updates: Partial<Resume>) {
+    setResume(resume => ({ ...resume, ...updates }));
+  }
+
+  function clearResume() {
+    setResume(emptyResume);
+  }
+
+  function loadResume() {
+    setResume(exampleResume);
+  }
+
+  return { resume, updateResume, clearResume, loadResume };
+}
