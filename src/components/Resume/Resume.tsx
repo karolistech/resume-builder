@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import type { Resume } from "@/types/resume";
 
 import "./Resume.css";
+import icons from "@/assets/icons/icons.svg";
 
 type ResumeProps = {
   resume: Resume;
@@ -11,6 +12,8 @@ type ResumeProps = {
 export default function Resume({ resume }: ResumeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const resumeRef = useRef<HTMLDivElement>(null);
+
+  const { personal, education, experience } = resume;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -39,6 +42,41 @@ export default function Resume({ resume }: ResumeProps) {
   return (
     <div ref={containerRef} className="resume__container">
       <div ref={resumeRef} className="resume">
+        <div className="resume__header">
+          <h1 className="resume__name">{personal.name}</h1>
+
+          <div className="resume__contacts">
+            {personal.email && (
+              <div className="resume__contact">
+                <svg className="resume__icon">
+                  <use href={`${icons}#envelope`} />
+                </svg>
+
+                <span>{personal.email}</span>
+              </div>
+            )}
+
+            {personal.phone && (
+              <div className="resume__contact">
+                <svg className="resume__icon">
+                  <use href={`${icons}#phone`} />
+                </svg>
+
+                <span>{personal.phone}</span>
+              </div>
+            )}
+
+            {personal.location && (
+              <div className="resume__contact">
+                <svg className="resume__icon">
+                  <use href={`${icons}#location`} />
+                </svg>
+
+                <span>{personal.location}</span>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
