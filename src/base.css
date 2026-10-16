@@ -36,6 +36,10 @@ body {
   font-family: NotoSans, system-ui;
 }
 
+input {
+  font: inherit;
+}
+
 button {
   background: none;
   border: none;

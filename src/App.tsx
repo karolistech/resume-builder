@@ -2,6 +2,7 @@ import { useView } from "@/hooks/useView";
 import { useResume } from "@/hooks/useResume";
 
 import Navbar from "@/components/Navbar/Navbar";
+import Editor from "@/components/Editor/Editor";
 import Resume from "@/components/Resume/Resume";
 
 import "./App.css";
@@ -17,7 +18,7 @@ export default function App() {
       </div>
 
       <div className="app__panel app__panel--editor">
-        Editor
+        <Editor resume={resume} updateResume={updateResume} clearResume={clearResume} loadResume={loadResume} />
       </div>
 
       <div className="app__panel app__panel--design">
