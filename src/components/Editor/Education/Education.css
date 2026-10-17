@@ -1,0 +1,81 @@
+.education {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--color-shadow);
+}
+
+.education__section-button {
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.education__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.education__title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-align: left;
+}
+
+.education__chevron-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.education__chevron-icon--open {
+  transform: rotate(180deg);
+}
+
+.education__entries {
+  list-style-type: none;
+}
+
+.education__entry {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-top: 5px solid var(--color-background);
+}
+
+.education__entry:last-child {
+  border-bottom: 5px solid var(--color-background);
+}
+
+.education__edit-button {
+  flex: 1;
+  align-self: stretch;
+  text-align: left;
+}
+
+.education__school {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.education__visibility-button {
+  width: 24px;
+  height: 24px;
+}
+
+.education__visibility-icon {
+  width: 100%;
+  height: 100%;
+}
+
+.education__create-button {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5rem 1rem;
+  border: 5px solid var(--color-background);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}

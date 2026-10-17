@@ -25,6 +25,7 @@
   --color-navy: #0e374e;
   --radius-sm: 4px;
   --radius-md: 8px;
+  --radius-pill: 25px;
 }
 
 *, *::before, *::after {

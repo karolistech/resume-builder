@@ -19,7 +19,9 @@
 }
 
 .app--editor .app__panel--editor {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .app--design .app__panel--design {
