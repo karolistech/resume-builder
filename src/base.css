@@ -20,6 +20,9 @@
   --color-background: #f4f4f4;
   --color-header-background: #0e374e;
   --color-header-text: #eef1f2;
+  --color-section-background: #eef1f2;
+  --color-section-text: #0e374e;
+  --color-divider-line: #eef1f2;
   --color-border: #aaa;
   --color-shadow: 0 0 8px rgb(0 0 0 / 10%);
   --color-white: #fff;

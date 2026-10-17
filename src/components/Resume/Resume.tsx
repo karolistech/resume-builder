@@ -77,6 +77,28 @@ export default function Resume({ resume }: ResumeProps) {
             )}
           </div>
         </div>
+
+        <div className="resume__body">
+          {education.some(entry => entry.visible) && (
+            <div className="resume__section">
+              <h2 className="resume__section-title">Education</h2>
+
+              {education.filter(entry => entry.visible).map(entry => (
+                <div key={entry.id} className="resume__entry">
+                  <div className="resume__entry-aside">
+                    <span>{entry.startDate} – {entry.endDate}</span>
+                    <span>{entry.location}</span>
+                  </div>
+
+                  <div className="resume__entry-body">
+                    <span className="resume__school">{entry.school}</span>
+                    <span>{entry.degree}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

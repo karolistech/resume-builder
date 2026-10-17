@@ -40,3 +40,50 @@
   width: 16px;
   height: 16px;
 }
+
+.resume__body {
+  padding: 2rem;
+}
+
+.resume__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.resume__section-title {
+  padding-block: 0.25rem;
+  background-color: var(--color-section-background);
+  color: var(--color-section-text);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.resume__entry {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.5rem;
+}
+
+.resume__entry:not(:last-child) {
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--color-divider-line);
+}
+
+.resume__entry-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.resume__entry-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.resume__school {
+  font-weight: 700;
+}
