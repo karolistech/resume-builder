@@ -98,6 +98,27 @@ export default function Resume({ resume }: ResumeProps) {
               ))}
             </div>
           )}
+
+          {experience.some(entry => entry.visible) && (
+            <div className="resume__section">
+              <h2 className="resume__section-title">Professional Experience</h2>
+
+              {experience.filter(entry => entry.visible).map(entry => (
+                <div key={entry.id} className="resume__entry">
+                  <div className="resume__entry-aside">
+                    <span>{entry.startDate} – {entry.endDate}</span>
+                    <span>{entry.location}</span>
+                  </div>
+
+                  <div className="resume__entry-body">
+                    <span className="resume__company">{entry.company}</span>
+                    <span className="resume__position">{entry.position}</span>
+                    <p className="resume__description">{entry.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

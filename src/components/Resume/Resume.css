@@ -43,6 +43,9 @@
 
 .resume__body {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .resume__section {
@@ -86,4 +89,17 @@
 
 .resume__school {
   font-weight: 700;
+}
+
+.resume__company {
+  font-weight: 700;
+}
+
+.resume__position {
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.resume__description {
+  white-space: pre-wrap;
 }
