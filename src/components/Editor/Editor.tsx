@@ -2,6 +2,7 @@ import type { Resume } from "@/types/resume";
 
 import Personal from "@/components/Editor/Personal/Personal";
 import Education from "@/components/Editor/Education/Education";
+import Experience from "@/components/Editor/Experience/Experience";
 
 type EditorProps = {
   resume: Resume;
@@ -15,6 +16,7 @@ export default function Editor({ resume, updateResume, clearResume, loadResume }
     <>
       <Personal personal={resume.personal} updateResume={updateResume} />
       <Education education={resume.education} updateResume={updateResume} />
+      <Experience experience={resume.experience} updateResume={updateResume} />
     </>
   );
 }
