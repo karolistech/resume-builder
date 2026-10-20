@@ -10,26 +10,24 @@ type EducationProps = {
   updateResume: (updates: Partial<Resume>) => void;
 };
 
-type Editor =
-  | { mode: null; entryId: null; snapshot: null }
-  | { mode: "create" | "edit"; entryId: string; snapshot: Education[] };
+type Editor = {
+  mode: "create" | "edit";
+  entryId: string;
+  snapshot: Education[];
+};
 
 export default function Education({ education, updateResume }: EducationProps) {
   const [sectionOpen, setSectionOpen] = useState(false);
-  const [editor, setEditor] = useState<Editor>({ mode: null, entryId: null, snapshot: null });
+  const [editor, setEditor] = useState<Editor | null>(null);
 
-  const entry = education.find(entry => entry.id === editor.entryId);
+  const entry = editor ? education.find(entry => entry.id === editor.entryId) : undefined;
 
   useEffect(() => {
-    if (editor.entryId !== null && entry === undefined) closeEditor();
-  }, [editor.entryId, entry]);
+    if (editor !== null && entry === undefined) setEditor(null);
+  }, [editor, entry]);
 
   function toggleSection() {
     setSectionOpen(open => !open);
-  }
-
-  function closeEditor() {
-    setEditor({ mode: null, entryId: null, snapshot: null });
   }
 
   function createEntry() {
@@ -53,12 +51,12 @@ export default function Education({ education, updateResume }: EducationProps) {
 
   function deleteEntry(id: string) {
     updateResume({ education: education.filter(entry => entry.id !== id) });
-    closeEditor();
+    setEditor(null);
   }
 
   function cancelEntry(snapshot: Education[]) {
     updateResume({ education: snapshot });
-    closeEditor();
+    setEditor(null);
   }
 
   function toggleEntry(id: string) {
@@ -70,6 +68,8 @@ export default function Education({ education, updateResume }: EducationProps) {
   }
 
   function handleInput(e: ChangeEvent<HTMLInputElement>) {
+    if (editor === null) return;
+
     const { name, value } = e.target;
 
     const updated = education.map(entry =>
@@ -81,7 +81,7 @@ export default function Education({ education, updateResume }: EducationProps) {
 
   function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    closeEditor();
+    setEditor(null);
   }
 
   return (
@@ -98,7 +98,7 @@ export default function Education({ education, updateResume }: EducationProps) {
         </svg>
       </button>
 
-      {sectionOpen && editor.mode === null && (
+      {sectionOpen && editor === null && (
         <>
           <ul className="education__entries">
             {education.map(entry => (
@@ -124,7 +124,7 @@ export default function Education({ education, updateResume }: EducationProps) {
         </>
       )}
 
-      {sectionOpen && editor.mode !== null && entry !== undefined && (
+      {sectionOpen && editor !== null && entry !== undefined && (
         <form className="education__form" onSubmit={handleSubmit}>
           <div className="education__fields">
             <div className="education__field">
