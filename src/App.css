@@ -25,7 +25,9 @@
 }
 
 .app--design .app__panel--design {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .app--resume .app__panel--resume {

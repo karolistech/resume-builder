@@ -1,4 +1,4 @@
-import type { Design, Layout } from "@/types/design";
+import type { Design, Font, Layout } from "@/types/design";
 
 import "./Design.css";
 
@@ -9,8 +9,10 @@ type DesignProps = {
 
 const layouts: Layout[] = ["top", "left", "right"];
 
+const fonts: Font[] = ["sans", "serif", "mono"];
+
 export default function Design({ design, updateDesign }: DesignProps) {
-  const { layout: currentLayout } = design;
+  const { layout: currentLayout, font: currentFont } = design;
 
   return (
     <>
@@ -31,6 +33,22 @@ export default function Design({ design, updateDesign }: DesignProps) {
           ))}
         </div>
       </div>
+
+      <div className="font">
+        <h2 className="font__title">Font</h2>
+
+        <div className="font__options">
+          {fonts.map(font => (
+            <button
+              key={font}
+              className={getFontButtonClass(font, currentFont)}
+              onClick={() => updateDesign({ font: font })}
+            >
+              {font}
+            </button>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
@@ -41,4 +59,12 @@ function getLayoutButtonClass(layout: Layout, currentLayout: Layout): string {
   const selected = layout === currentLayout && "layout__button--selected";
 
   return [base, position, selected].filter(Boolean).join(" ");
+}
+
+function getFontButtonClass(font: Font, currentFont: Font): string {
+  const base = "font__button";
+  const variant = `font__button--${font}`;
+  const selected = font === currentFont && "font__button--selected";
+
+  return [base, variant, selected].filter(Boolean).join(" ");
 }

@@ -16,7 +16,7 @@ export default function Resume({ resume, design }: ResumeProps) {
   const resumeRef = useRef<HTMLDivElement>(null);
 
   const { personal, education, experience } = resume;
-  const { layout } = design;
+  const { layout, font } = design;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -44,7 +44,7 @@ export default function Resume({ resume, design }: ResumeProps) {
 
   return (
     <div ref={containerRef} className="resume__container">
-      <div ref={resumeRef} className={`resume resume--${layout}`}>
+      <div ref={resumeRef} className={`resume resume--${layout} resume--font-${font}`}>
         <div className="resume__header">
           <h1 className="resume__name">{personal.name}</h1>
 

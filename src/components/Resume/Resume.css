@@ -11,6 +11,18 @@
   overflow-wrap: anywhere;
 }
 
+.resume--font-sans {
+  font-family: NotoSans;
+}
+
+.resume--font-serif {
+  font-family: NotoSerif;
+}
+
+.resume--font-mono {
+  font-family: NotoSansMono;
+}
+
 .resume--top {
   flex-direction: column;
 }
