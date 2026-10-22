@@ -1,4 +1,4 @@
-import type { Design, Font, Layout } from "@/types/design";
+import type { Color, Design, Font, Layout } from "@/types/design";
 
 import "./Design.css";
 
@@ -10,6 +10,14 @@ type DesignProps = {
 const layouts: Layout[] = ["top", "left", "right"];
 
 const fonts: Font[] = ["sans", "serif", "mono"];
+
+const colors: { label: string; key: Color }[] = [
+  { label: "Header Background", key: "headerBackground" },
+  { label: "Header Text", key: "headerText" },
+  { label: "Section Background", key: "sectionBackground" },
+  { label: "Section Text", key: "sectionText" },
+  { label: "Divider Line", key: "dividerLine" }
+];
 
 export default function Design({ design, updateDesign }: DesignProps) {
   const { layout: currentLayout, font: currentFont } = design;
@@ -46,6 +54,23 @@ export default function Design({ design, updateDesign }: DesignProps) {
             >
               {font}
             </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="color">
+        <h2 className="color__title">Color</h2>
+
+        <div className="color__options">
+          {colors.map(color => (
+            <div key={color.key} className="color__option">
+              <span>{color.label}</span>
+
+              <input
+                type="color" className="color__input" value={design[color.key]}
+                onChange={e => updateDesign({ [color.key]: e.target.value })}
+               />
+            </div>
           ))}
         </div>
       </div>

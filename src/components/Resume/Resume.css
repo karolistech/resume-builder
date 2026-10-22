@@ -1,5 +1,6 @@
 .resume__container {
   overflow: hidden;
+  box-shadow: var(--color-shadow);
 }
 
 .resume {
