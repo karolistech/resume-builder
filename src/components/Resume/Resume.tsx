@@ -1,19 +1,22 @@
 import { useEffect, useRef } from "react";
 
 import type { Resume } from "@/types/resume";
+import type { Design } from "@/types/design";
 
 import "./Resume.css";
 import icons from "@/assets/icons/icons.svg";
 
 type ResumeProps = {
   resume: Resume;
+  design: Design;
 };
 
-export default function Resume({ resume }: ResumeProps) {
+export default function Resume({ resume, design }: ResumeProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const resumeRef = useRef<HTMLDivElement>(null);
 
   const { personal, education, experience } = resume;
+  const { layout } = design;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -41,7 +44,7 @@ export default function Resume({ resume }: ResumeProps) {
 
   return (
     <div ref={containerRef} className="resume__container">
-      <div ref={resumeRef} className="resume">
+      <div ref={resumeRef} className={`resume resume--${layout}`}>
         <div className="resume__header">
           <h1 className="resume__name">{personal.name}</h1>
 
