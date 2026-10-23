@@ -82,3 +82,22 @@
     gap: 0.5rem;
   }
 }
+
+@media print {
+  .app {
+    padding: 0;
+    display: block;
+  }
+
+  .app__navbar {
+    display: none;
+  }
+
+  .app--editor .app__panel--editor {
+    display: none;
+  }
+
+  .app__panel--resume {
+    display: block;
+  }
+}

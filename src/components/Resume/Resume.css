@@ -165,5 +165,31 @@
 }
 
 .resume__description {
+  line-height: 1.5;
   white-space: pre-wrap;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  .resume__container {
+    width: 210mm;
+    height: 297mm !important;
+    box-shadow: none;
+  }
+
+  .resume {
+    transform: none !important;
+  }
+
+  .resume__header {
+    print-color-adjust: exact;
+  }
+
+  .resume__section-title {
+    print-color-adjust: exact;
+  }
 }
